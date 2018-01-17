@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<!-- 设置当前HTML文件的字符编码 -->
+	<meta charset="utf-8">
+	<!-- 设置浏览器的兼容模式版本（让IE使用最新的渲染引擎工作） -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>Bootstrap 101 Template</title>
+
+	<!-- 引入Boostrap核心样式表文件 -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- html5shiv 让浏览器可以识别HTML5的新标签 -->
+	<!-- respond让低版本浏览器可以使用css3的媒体查询 （根据一个自己写的判断条件，从而决定一段css代码是否被执行）   -->
+	<!-- 条件注释，在某些浏览器能识别这种注释，并作出相应的判断 -->
+    <!--[if lt IE 9]>   
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <!-- 把自己写的文件默认放在最下面 -->
+      <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+  	<h1>hello world</h1>
+
+  	<!-- Bootstrap 的所有JS组件都是依赖JQuery的-->
+  	<script src="lib/jquery/jquery.js"></script>
+  	<script src="lib/bootstrap/js/bootstrap.js"></script>
+  	<script src="js/main.js"></script>
+  </body>
+  </html>
+
+  1. a标签优先级较高，不受父级影响
+  2. #main > div + div,表示div的兄弟节点（不包括本身）
+  3. 自定义Bootstrap样式的方法：blog/kolite.com/bbg
+  4. 字体图标：
+	  小，可控颜色 大小，矢量；
+	  若字体非系统自带的，则在css中添加：
+	  @font-face{
+		  font-family: 'itcast';
+		  src:url('../font/MiFie-Web-Font.eot') format('embedded-opentype'),
+			  url('../font/MiFie-Web-Font.svg') format('svg'),
+			  url('../font/MiFie-Web-Font.ttf') format('truetype'),
+			  url('../font/MiFie-Web-Font.woff') format('woff');
+		}
+  5. 将.svg格式的图片做成字体图标， icomoon的使用：https://icomoon.io/app/#/select
+  6. 对Bootstrap中的样式作相应的扩展
+  7. 显示隐藏用visible-md visible-lg、hidden-sm hidden-xs
+  8. sr-only:增强可访问性
+
+  9. <script type=""></script>的加载时同步的，bootstrap.js依赖于jquery.js，所以：
+    	<script src="lib/jquery/jquery.js"></script>  <!-- 先加载 -->
+    	<script src="lib/bootstrap/js/bootstrap.js"></script>  <!-- 后加载 -->
+  10. 注意css的加载顺序
+  11. 轮播图：更改bootstrap 代码中的id，data-target，href 	
+  		$element.data()是一个函数，专门用于取元素上的自定义属性
+  		函数的参数是我们要取得属性名称（abc）
+  	data-自定义数据
+  12. 板块与板块之间的分割线加在上面元素，用border-bottom属性。
+  23. css3伪类实现选项卡
+  		导航栏nav>li>a的样式一般直接给a标签添加
+  24. border-radius的属性值超过了一定值后就饱和了
+  25. h1标签少用，确保一个页面只出现一个。
+  26. roles属性 aria-xxx属性 只是跟语义相关
+  27. 在父级盒子上设置font-size:0;可去掉子级div盒子之间的空格
+  28. 设置横向滚动条：overflow-x: scroll;在判断ul宽度小于屏幕宽度时才设置
+  29. 全局css样式的辅助类中有让内容快居中的类.center-block,可以代替margin:0 auto;
+
+  30. 吸顶效果
+      data-spy=”affix”
+      data-offset-top=”什么位置出现”
+      data-offset-bottom=”什么位置消失”
+      Affix <div data-spy="affix" data-offset-top="60" data-offset-bottom="200"></div>
+
+  31. less的安装与使用
+      $ npm install -g less
+        lessc main.less > main.css
+      less浏览器端的使用（必须在http环境下才能访问）：
+      <link rel="stylesheet/less" type="text/css" href="styles.less" />
+
+      less要点：1.可定义变量 @
+                2.嵌套
+                3.混合语法（Mixin）
+                4.import
+                4.函数→（内置函数）→lighten:讲一个颜色变亮
+                                    lighten(#000,10%)  → #1a1a1a
+                                    darken:将一个颜色变暗
+                                    darken(#000,10%) → #e6e6e6

@@ -1,0 +1,54 @@
+//定义变量
+@bgColor: #f5f5f5;
+@width:1024px;
+body{
+	background-color: @bgColor;
+}
+
+//嵌套
+.container{
+	width: @width;
+	.row{
+		height: 100%;
+		a{
+			color: #f20;
+			&:hover{
+				color: #f40;
+			} 
+		}
+	}
+}
+
+//混合语法（Mixin）
+//定义一个类
+//定义一个代码段，（）里的内容是参数，参数中：后的内容是采纳数的默认值（）缺省值
+.radius(@radius:5px){
+	-webkit-border-radius:@radius;
+	-moz-border-radius:@radius;
+	-o-border-radius:@radius;
+	border-radius:@radius;
+}
+// 定义的类应用到另一个类中
+#header{
+	.radius;
+}
+#footer{
+	.radius(10px);
+}
+
+
+// import
+@import url('_p.less');
+@h:50px;
+
+
+//函数
+// 内置函数
+//lighten:讲一个颜色变亮
+// lighten(#000,10%)  → #1a1a1a
+// darken:将一个颜色变暗
+// darken(#000,10%) → #e6e6e6		
+body{
+	background-color: lighten(#000,10%);
+	color: darken(#fff,10%);
+}
